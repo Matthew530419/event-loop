@@ -48,7 +48,7 @@
 
 #### 4-2. Add toggle within callback function
 
-- Please control output with switch type of input because condition exists only two type. First, move to 500px along with X axis. Second, move to 300px. So, toggle would be better.
+- Please control output with switch type of input because condition exists only two type. First, move to 800px along with X axis. Second, move to 500px. So, toggle would be better.
 
 - `<script>`
   `const button = document.querySelector('button');`
