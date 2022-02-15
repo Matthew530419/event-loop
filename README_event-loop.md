@@ -24,3 +24,45 @@
 
 - <img src="./img/eventloop.gif" width="700" height="400">
   <img src="./img/eventloop2.png" width="700" height="400">
+
+### 4. Demo of Event loop
+
+- In case you want to make application which moves coordinate when clicking button, use toggle rather than type functions within callback function.
+
+#### 4-1. Insert only commands within callback function
+
+- Output maybe is that box would move to 500px at first according to X axis. And then, box would be stopped because last command is `box.style.transform = 'translateX(500px)';`.
+  `box.style.transform = 'translateX(800px)';` can not be operated because `box.style.transform = 'translateX(500px)';` is rewritten after `box.style.transform = 'translateX(800px)';`. In case of different value on same element, `Event loop` updates last command.
+
+- `<script>`
+  `const button = document.querySelector('button');`
+  `const box = document.querySelector('.box');`
+  `button.addEventListener('click',` `()=> {`
+  `box.style.transition = 'transform 1s ease-in';`
+  `box.style.transform = 'translateX(800px)';`
+  `box.style.transform = 'translateX(500px)';`
+  })
+  `</script>`
+
+- <img src="./img/demo1.gif" width="700" height="250">
+
+#### 4-2. Add toggle within callback function
+
+- Please control output with switch type of input because condition exists only two type. First, move to 500px along with X axis. Second, move to 300px. So, toggle would be better.
+
+- `<script>`
+  `const button = document.querySelector('button');`
+  `const box = document.querySelector('.box');`
+  `let started = false;`
+  `button.addEventListener('click'`, `()=> {`
+  `box.style.transition = 'transform 1s ease-in';`
+  `if(!started)` {
+  `box.style.transform = 'translateX(800px)';`
+  } `else` {
+  `box.style.transform = 'translateX(500px)';`
+  }
+  `started = !started;`
+  })
+  `</script>`
+
+- <img src="./img/demo2.gif" width="700" height="250">

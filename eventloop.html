@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            background-color: black;
+        }
+        button {
+            font-size: 30px;
+        }
+        button:hover {
+            color: red;
+            background-color: beige;
+            cursor: pointer;
+        }
+        .box {
+            margin-top: 30px;
+            width: 300px;
+            height: 300px;
+            background-color: yellow;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <button>Let's move</button>
+    <div class="box"></div>
+    <script>
+        const button = document.querySelector('button');
+        const box = document.querySelector('.box');
+        button.addEventListener('click', ()=> {
+            box.style.transition = 'transform 1s ease-in';
+            box.style.transform = 'translateX(800px)';
+            box.style.transform = 'translateX(500px)';
+        })
+    </script>
+</body>
+</html>
